@@ -4,12 +4,12 @@
 #include <math.h>
 // TEMP
 typedef struct set {
-	float* ArrayX;
-	float* ArrayY;
-	float* ArrayW;
+	double* ArrayX;
+	double* ArrayY;
+	double* ArrayW;
 	int size;
-    float x0;
-    float y0;
+    double x0;
+    double y0;
 }Set;
 
 #define EPSILON 0.0001
@@ -23,10 +23,10 @@ void printValues(Set* ptrSet);
 void deleteArray(Set* ptrSet);
 void initPoint(Set* ptrSet);
 void printInit(Set* ptrSet);
-void weiszfeld(Set* ptrSet, float epsilon,  int kmax, float Zk1);
-void distance(Set* ptrSet, float* ptrDistances, float x0, float y0);
-float sum(int i, Set* ptrSet, float* distances);
-void newPoint(Set* ptrSet, float* ptrDistances);
+void weiszfeld(Set* ptrSet, double epsilon,  int kmax, double Zk1);
+void distance(Set* ptrSet, double* ptrDistances, double x0, double y0);
+double sum(int i, Set* ptrSet, double* distances);
+void newPoint(Set* ptrSet, double* ptrDistances);
 
 /*----------------------------------------------------------------------------*/
 int main(int argc, char const *argv[]) {
@@ -35,7 +35,7 @@ int main(int argc, char const *argv[]) {
 	/*
 	int xs[] = {0, 0, 2, 2};
 	int ys[] = {0, 2, 0, 2};
-	float ws[] = {1.0, 1.0, 1.0, 1.0};
+	double ws[] = {1.0, 1.0, 1.0, 1.0};
 	Set* test = malloc(sizeof(Set));
 	test->size = 4;
 	test->ArrayX = xs;
@@ -83,18 +83,17 @@ Set* getNewSet(int size)
 void generateDarray(Set* ptrSet)
 {
 	int size = ptrSet->size;
-	float* arrTempX = malloc(sizeof(float)*size);
-	float* arrTempY = malloc(sizeof(float)*size);
-	float* arrTempW = malloc(sizeof(float)*size);
-    //srand48(time(0));
-	srand48(1);
+	double* arrTempX = malloc(sizeof(double)*size);
+	double* arrTempY = malloc(sizeof(double)*size);
+	double* arrTempW = malloc(sizeof(double)*size);
+    srand48(time(0));
 	for( int i = 0; i < size; i++){
 		arrTempX[i] = lrand48() % (size+1);
 		arrTempY[i] = lrand48() % (size+1);
 		//The lrand48() function returns non-negative, long integers, uniformly distributed over the interval [0,RAND_MAX].
         int lower = size/10;
         int upper = lower*5;
-		arrTempW[i] = ((float)lrand48()/(float)(RAND_MAX))*(upper-lower) + lower;
+		arrTempW[i] = ((double)lrand48()/(double)(RAND_MAX))*(upper-lower) + lower;
 	}
 	ptrSet->ArrayX = arrTempX;
 	ptrSet->ArrayY = arrTempY;
@@ -119,12 +118,12 @@ void deleteArray(Set* ptrSet)
 void initPoint(Set* ptrSet)
 {
 	int size = ptrSet->size;
-	float tempSumWX = 0;
-	float tempSumWY = 0;
-	float tempSumW = 0;
-	float tempX  = 0;
-	float tempY  = 0;
-	float tempW = 0;
+	double tempSumWX = 0;
+	double tempSumWY = 0;
+	double tempSumW = 0;
+	double tempX  = 0;
+	double tempY  = 0;
+	double tempW = 0;
 	for(int i = 0; i < size; i++){
 		tempX  = ptrSet->ArrayX[i];
 		tempY  = ptrSet->ArrayY[i];
@@ -142,12 +141,12 @@ void printInit(Set* ptrSet)
 	printf("Soluciones iniciales Xo = %f, Yo = %f\n", ptrSet->x0, ptrSet->y0);
 }
 
-void weiszfeld(Set* ptrSet, float epsilon,  int kmax, float Zk1)
+void weiszfeld(Set* ptrSet, double epsilon,  int kmax, double Zk1)
 {
-	float* distances = malloc(sizeof(float)*(ptrSet->size));
+	double* distances = malloc(sizeof(double)*(ptrSet->size));
 	distance(ptrSet, distances, ptrSet->x0, ptrSet->y0);
 
-	float Zk = sum(ptrSet->size, ptrSet, distances);
+	double Zk = sum(ptrSet->size, ptrSet, distances);
 	//Esto se ejecuta la primera vez
 	newPoint(ptrSet, distances); // Seteo de nuevo punto inicial
 	free(distances);
@@ -160,16 +159,16 @@ void weiszfeld(Set* ptrSet, float epsilon,  int kmax, float Zk1)
 	}
 }
 
-void distance(Set* ptrSet, float* ptrDistances, float x0, float y0)
+void distance(Set* ptrSet, double* ptrDistances, double x0, double y0)
 {
-	 float* Xs = ptrSet->ArrayX;
-	 float* Ys = ptrSet->ArrayY;
+	 double* Xs = ptrSet->ArrayX;
+	 double* Ys = ptrSet->ArrayY;
 	for(int i = 0; i < ptrSet->size; i++) {
 		ptrDistances[i] = sqrt(pow((double)(Xs[i]-x0), (double)(2)) + pow((double)(Ys[i]-y0), (double)(2)));
 	}
 }
 
-float sum(int i, Set* ptrSet, float* distances)
+double sum(int i, Set* ptrSet, double* distances)
 {
 	if(i == 1) {
 		return ( (ptrSet->ArrayW[0]) * distances[0] );
@@ -177,16 +176,16 @@ float sum(int i, Set* ptrSet, float* distances)
 	return sum(i-1, ptrSet, distances) + (ptrSet->ArrayW[i-1]) * distances[i-1];
 }
 
-void newPoint(Set* ptrSet, float* ptrDistances)
+void newPoint(Set* ptrSet, double* ptrDistances)
 {
 	int size = ptrSet->size;
-	float tempSumWX = 0;
-	float tempSumWY = 0;
-	float tempSumW = 0;
-	float tempX  = 0;
-	float tempY  = 0;
-	float tempD = 0;
-	float tempW = 0;
+	double tempSumWX = 0;
+	double tempSumWY = 0;
+	double tempSumW = 0;
+	double tempX  = 0;
+	double tempY  = 0;
+	double tempD = 0;
+	double tempW = 0;
 	for(int i = 0; i < size; i++){
 		tempX  = ptrSet->ArrayX[i];
 		tempY  = ptrSet->ArrayY[i];
