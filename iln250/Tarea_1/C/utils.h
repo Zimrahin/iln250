@@ -24,9 +24,9 @@
 
 // TEMPORAL POR COMENTAR
 
-#define EPSILON 0.001
+#define EPSILON 0.0001
 #define KMAX 30
-#define I_SIZE 1000
+#define I_SIZE 10000
 #define ALPHA 0.3 // 0<ALPHA<0.5
 #define BETA 0.6 // 0<BETA<1
 
@@ -43,9 +43,9 @@ typedef struct set {
 	double* ArrayX;		/**< Puntero a un arreglo que contiene los puntos Xi   */
 	double* ArrayY;		/**< Puntero a un arreglo que contiene los puntos Yi   */
 	double* ArrayW;		/**< Puntero a un arreglo que contiene los pesos Wi    */
-	int size;					/**< Tamaño de los arreglos, asociado a cardinalidad I */
-  double x0;				/**< Solucion inicial en X */
-  double y0;				/**< Solucion inicial en Y */
+	int size;			/**< Tamaño de los arreglos, asociado a cardinalidad I */
+	double x0;			/**< Solucion inicial en X */
+	double y0;			/**< Solucion inicial en Y */
 }Set;
 
 /**
@@ -75,10 +75,49 @@ Set* getNewSet(int size);
  * @param[in] ptrSet Estructura a la cual se le generara Xi, Yi y Wi
 */
 void generateDarray(Set* ptrSet);
-
-void printValues(Set* ptrSet);
+/**
+ * @brief deleteArray procede a dealocar los arreglos y estructuras creadas
+ *
+ * Elimina los arreglos asociados al conjunto set pasado, para finalmente
+ * eliminar este ultimo.
+ *
+ * @param[in] ptrSet Puntero, a la estructura Set a dealocar.
+*/
 void deleteArray(Set* ptrSet);
+/**
+ * @brief initPoint procede a calcular los puntos iniciales de un Set.
+ *
+ * La funcion debe ser llamada luego de generar los arreglos asociados a la
+ * estructura Set, esta procede a utilizar la formula entregada para los puntos
+ * inciales dada en el documento de trabajo. La funcion luego de calcular los
+ * valores de estos puntos, los asocia a los elementos X0 e Y0 de la estructura.
+ *
+ * @param[in] ptrSet Puntero a la estructura a operar sobre.
+*/
 void initPoint(Set* ptrSet);
+/**
+ * @brief weiszfeld aplicar el algoritmo del mismo nombre sobre un Set.
+ *
+ * Esta funcion aplica el algoritmo de Weiszfeld de forma recursiva sobre un Set
+ * pasado, dado una condición de termino definida por un epsilon, un número
+ * máximo de iteraciones dado por kmax, y un valor Zk1, el cual debe ser
+ * inicializado a cero al llamar la funcion, ya que es utilizado por el
+ * el algoritmo para la recursividad.
+ * Funcionamiento interno: En primera instancia, se calcula un vector de
+ * distancias, el cual permite calcular el valor Zk(0) y nuevos puntos
+ * iniciales para el set. Luego se verifica la condición de termino, si
+ * fabs(Zk - Zk1) < epsilon. Si esto se cumple, el algoritmo termina, en caso
+ * contrario se llama de forma recursiva, pasando como argumento Zk1 el
+ * Zk(0) calculado en la presente iteracion. De forma analoga tambien, para cada
+ * iteracion se verifica si se llego al numero maximo de iteraciones kmax, si es
+ * asi, el algoritmo se detiene. Los resultados se alamacenan como los nuevos
+ * puntos X0 e Y0 del set pasado.
+ *
+ * @param[in] ptrSet Puntero al set sobre el cual se aplicara el algoritmo
+ * @param[in] epsilon Valor para la condición de termino, generalmente 10^-4
+ * @param[in] kmax Numero máximo de iteraciones para el algoritmo
+ * @param[in] Zk1 Parametro para llamadas recursiva, inicializar a 0
+*/
 void weiszfeld(Set* ptrSet, double epsilon,  int kmax, double Zk1);
 void distance(Set* ptrSet, double* ptrDistances, double x0, double y0);
 double sum(int i, Set* ptrSet, double* distances);
@@ -91,6 +130,10 @@ void multArray22x21(double arrayA[][2], double* arrayB, double* arrayReturn);
 void gradient(Set* ptrSet, double epsilon);
 void invHfunction(Set* ptrSet, double x, double y, double returnArray[][2]);
 void newton(Set* ptrSet, double epsilon);
+
+
+//Revision para eliminacion
+void printValues(Set* ptrSet);
 
 
 

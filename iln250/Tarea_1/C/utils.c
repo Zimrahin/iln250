@@ -88,7 +88,7 @@ void weiszfeld(Set* ptrSet, double epsilon, int kmax, double Zk1)
 		//printf("Weiszfeld listo! \n");
 	}
 	else{
-		//printf("yip yip! \n");
+		printf("yip yip! \n");
 		weiszfeld(ptrSet, epsilon, kmax-1, Zk);
 	}
 }
