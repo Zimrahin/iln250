@@ -13,7 +13,7 @@ Set* getNewSet(int size)
     }
     newSet->size = size;
     generateDarray(newSet);
-	initPoint(newSet);
+    initPoint(newSet);
     return newSet;
 
 }

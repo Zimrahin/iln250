@@ -1,17 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include <sys/time.h>
+/****************************************************************************
+ * Tarea #1  - [ILN250] Gestión de información y operación                  *
+ *																																					*
+ * Este archivo es parte de la entrega del código de la seción de alogorit- *
+ * mos de minimización programados para el problema SSWB.										*
+  *																																					*
+ ****************************************************************************/
+ /**
+ * @file tarea_1.c
+ * @author Mauricio Aravena - Diego Badillo
+ * @date 4 Nov 2020
+ * @brief Main de la tarea #1, llama algoritmos y calcula el tiempo de ejecución
+ *
+ * Este archivo es el encargado tanto de generar los sets de valores para
+ * entregar a los algoritmos llamados, como también contiene la lógica para
+ * calcular el tiempo de ejecución de cada uno, asi como entregar los prints,
+ * con esta información.
+ *
+ */
 
-// Archivos tarea
-#include "utils.h"
-// TEMP
+ /**
+ * [Bibliotecas estandar importadas]
+ */
+#include <stdio.h>		/**< Estandar de I/O en C */
+#include <stdlib.h>		/**< Estandar de C */
+#include <time.h>			/**< Funciones relacionadas a la medición de tiempo */
+#include <math.h>			/**< Biblioteca de matematicas */
+#include <sys/time.h> /**< System Time */
+
+/**
+* [Biblioteca definida por usuario]
+*/
+#include "utils.h"		/**< Archivo con las declaraciones de las funciones algoritmo */
+
 
 // #define EPSILON 0.001
 // #define KMAX 30
 // #define I_SIZE 1000
-// #define INSTANCES 1
+#define INSTANCES 1 // TEMPORAL
 // #define ALPHA 0.3 // 0<ALPHA<0.5
 // #define BETA 0.6 // 0<BETA<1
 
