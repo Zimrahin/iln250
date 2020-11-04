@@ -1,0 +1,6 @@
+#
+param cont default 0 ;
+repeat until cont == 10{
+	print "la falopita";
+
+	let cont :=cont + 1;};
