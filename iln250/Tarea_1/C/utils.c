@@ -78,7 +78,7 @@ void initPoint(Set* ptrSet)
 void weiszfeld(Set* ptrSet, double epsilon, int kmax, double Zk1)
 {
 	double* distances = malloc(sizeof(double)*(ptrSet->size));
-	distance(ptrSet, distances, ptrSet->x0, ptrSet->y0);
+	distance(ptrSet, distances);
 	double Zk = sum(ptrSet->size, ptrSet, distances);
 	//Esto se ejecuta la primera vez
 	newPoint(ptrSet, distances); // Seteo de nuevo punto inicial
@@ -93,10 +93,12 @@ void weiszfeld(Set* ptrSet, double epsilon, int kmax, double Zk1)
 	}
 }
 
-void distance(Set* ptrSet, double* ptrDistances, double x0, double y0)
+void distance(Set* ptrSet, double* ptrDistances)
 {
-	 double* Xs = ptrSet->ArrayX;
-	 double* Ys = ptrSet->ArrayY;
+  double x0 = ptrSet->x0;
+  double y0 = ptrSet->y0;
+	double* Xs = ptrSet->ArrayX;
+	double* Ys = ptrSet->ArrayY;
 	for(int i = 0; i < ptrSet->size; i++) {
 		ptrDistances[i] = sqrt(pow((double)(Xs[i]-x0), (double)(2)) + pow((double)(Ys[i]-y0), (double)(2)));
 	}

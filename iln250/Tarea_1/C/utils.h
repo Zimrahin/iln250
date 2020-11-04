@@ -119,9 +119,43 @@ void initPoint(Set* ptrSet);
  * @param[in] Zk1 Parametro para llamadas recursiva, inicializar a 0
 */
 void weiszfeld(Set* ptrSet, double epsilon,  int kmax, double Zk1);
-void distance(Set* ptrSet, double* ptrDistances, double x0, double y0);
+/**
+ * @brief distance inicializa un arreglo con las distancias di
+ *
+ * La función inicializa un arreglo, con el cálculo de las distancias
+ * eucliadianas entre los puntos Xi e Yi, con los puntos iniciales X0, Y0, que
+ * se obtienen del set pasado.
+ *
+ * @param[in] ptrSet Puntero al set sobre el cual se calculara las distancias
+ * @param[in] ptrDistances Puntero a un arreglo donde se guarda el resultado
+*/
+void distance(Set* ptrSet, double* ptrDistances);
+/**
+ * @brief sum  Calcula el valor de la sumatoria que define a Z(k)
+ *
+ * La función se llama de manera recursiva para calcular el valor de la
+ * sumatoria que está definida por Wi*di(k). Retorna el valor del resultado.
+ *
+ * @param[in] i Corresponde a la cardinalidad del conjunto I
+ * @param[in] ptrSet Puntero a la estructura sobre la cual se operara.
+ * @param[in] distances Puntero a arreglo de distancias de la iteracion k.
+ * @param[out] sum Resultado que contiene el valor de Zk.
+*/
 double sum(int i, Set* ptrSet, double* distances);
+/**
+ * @brief newPoint Recalcula los puntos iniciales considerando la distancia d(k)
+ *
+ * La función realiza el recalculo de los puntos iniciales, considerando la
+ * distancia calculada en la iteración k-esima - 1, para poder estimar los
+ * puntos iniciales X0(k) e Y0(k), estos se reescriben en la estructura.
+ *
+ * @param[in] ptrSet Puntero al Set sobre el cual se operara.
+ * @param[in] distances Puntero al arreglo de distancias de iteracion k-1
+*/
 void newPoint(Set* ptrSet, double* ptrDistances);
+/**
+ * [ VER ORDEN FUNCIONEs]
+*/
 void Dfunction(Set* ptrSet, double x, double y, double* returnArray);
 double backtracking(Set* ptrSet, double* difArray, double* nabArray, double alpha, double beta);
 double function(Set* ptrSet, double x, double y);
