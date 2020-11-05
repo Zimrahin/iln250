@@ -159,9 +159,19 @@ void newPoint(Set* ptrSet, double* ptrDistances);
  * @brief gradient Aplica el algoritmo de gradiente con backtracking sobre Set
  *
  * La función aplica el algoritmo resolutivo del método de gradiente con
- * backtracking sobre la estructura set pasado, de forma recursiva.
+ * backtracking sobre la estructura set pasado, de forma recursiva, hasta que
+ * la condición fijada por el parametro epsilon se cumple. Se retorna el
+ * numero de iteraciones hasta encontrar la solución. Las soluciones se
+ * almacenan en la estructura en los parametros X0 e Y0.
+ *
+ * @param[in] ptrSet Puntero a la estructura sobre la cual se operara.
+ * @param[in] epsilon Parametro que fija la condición de termino del algoritmo
+ * @param[out] CInterno Contador del número de iteraciones del algoritmo.
 */
 int gradient(Set* ptrSet, double epsilon);
+/**
+ *
+*/
 void Dfunction(Set* ptrSet, double x, double y, double* returnArray);
 double backtracking(Set* ptrSet, double* difArray, double* nabArray, double alpha, double beta);
 double function(Set* ptrSet, double x, double y);
