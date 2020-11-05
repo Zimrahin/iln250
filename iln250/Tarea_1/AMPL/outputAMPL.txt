@@ -704,4 +704,4 @@ tmax = 0.020097
 zavg = 1.14836e+11
 zmax = 1.1639e+11
 
-ampl: 
+ampl:

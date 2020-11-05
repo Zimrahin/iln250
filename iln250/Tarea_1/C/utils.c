@@ -1,10 +1,36 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include "utils.h"
-/*----------------------------------------------------------------------------*/
-/*funciones*/
+/****************************************************************************
+ * Tarea #1  - [ILN250] Gestión de información y operación                  *
+ *                                                                          *
+ * Este archivo es parte de la entrega del código de la seción de alogorit- *
+ * mos de minimización programados para el problema SSWB.                   *
+ *                                                                          *
+ ****************************************************************************/
+ /**
+ * @file utils.c
+ * @author Mauricio Aravena - Diego Badillo
+ * @date 4 Nov 2020
+ * @brief Archivo de definición de las funciones implementadas en esta tarea.
+ *
+ * Este archivo contiene las definiciones de las funciones implementadas para
+ * cumplir con los requisitos pedidos en la tarea, contiene los dos algoritmo
+ * bases, Gradiente y Newton, asi como todas las funciones relacionadas, como
+ * la función para estimar el paso t, por el metodo de backtracking.
+ *
+ */
+
+
+ /**
+ * [Bibliotecas estandar importadas]
+ */
+#include <stdio.h>		/**< Estandar de I/O en C */
+#include <stdlib.h>		/**< Estandar de C */
+#include <time.h>		/**< Funciones relacionadas a la medición de tiempo */
+#include <math.h>		/**< Biblioteca de matematicas */
+#include "utils.h"      /**< Declaraciones funciones implementadas */
+
+ /*****************************************************************************
+                        Definición de funciones
+ ****************************************************************************/
 Set* getNewSet(int size)
 {
     Set* newSet = NULL;
@@ -39,13 +65,6 @@ void generateDarray(Set* ptrSet)
 	initPoint(ptrSet);
 }
 
-void printValues(Set* ptrSet) {
-	int size = ptrSet->size;
-	for(int i = 0; i < size; i++){
-		printf("[%i] Valores Xi = %f, Yi = %f, Wi = %f\n", (i+1),ptrSet->ArrayX[i],ptrSet->ArrayY[i], ptrSet->ArrayW[i]);
-	}
-}
-
 void deleteArray(Set* ptrSet)
 {
 	free(ptrSet->ArrayX);
@@ -53,6 +72,7 @@ void deleteArray(Set* ptrSet)
 	free(ptrSet->ArrayW);
 	free(ptrSet);
 }
+
 void initPoint(Set* ptrSet)
 {
 	int size = ptrSet->size;
@@ -74,22 +94,18 @@ void initPoint(Set* ptrSet)
     ptrSet->y0 = tempSumWY/tempSumW;
 }
 
-
 int weiszfeld(Set* ptrSet, double epsilon, int kmax, double Zk1)
 {
     int cInterno = 1;
     double* distances = malloc(sizeof(double)*(ptrSet->size));
 	distance(ptrSet, distances);
 	double Zk = sum(ptrSet->size, ptrSet, distances);
-	//Esto se ejecuta la primera vez
-	newPoint(ptrSet, distances); // Seteo de nuevo punto inicial
+	newPoint(ptrSet, distances); /**<Seteo de nuevo punto inicial */
 	free(distances);
 	if ( (kmax <= 0) || fabs(Zk - Zk1) < epsilon ){
-		//Terminar y guardar
-		//printf("Weiszfeld listo! \n");
+        // Nada que hacer, se termino de ejecutar algoritmo, se sale.
 	}
 	else{
-		//printf("yip yip! \n");
 		cInterno = 1 + weiszfeld(ptrSet, epsilon, kmax-1, Zk);
 	}
     return cInterno;
@@ -142,7 +158,7 @@ void newPoint(Set* ptrSet, double* ptrDistances)
 int gradient(Set* ptrSet, double epsilon)
 {
     int cInterno = 1;
-	//calculo deltax
+	/**< Calculo de deltax */
 	double difArray[2];
 	Dfunction(ptrSet, ptrSet->x0, ptrSet->y0, difArray);
 	double nabArray[2];
@@ -158,13 +174,10 @@ int gradient(Set* ptrSet, double epsilon)
 	ptrSet->y0 = ptrSet-> y0 + (t*difArray[1]);
 	double norma = pow(nabArray[0], 2) + pow(nabArray[1],2);
 	if(norma >= pow(epsilon,2)  && t >= 0.000005){
-		//printf("yip yip!\n");
 		cInterno = 1 + gradient(ptrSet, epsilon);
 	}
     return cInterno;
-
 }
-
 
 double backtracking(Set* ptrSet, double* difArray, double* nabArray, double alpha, double beta)
 {
@@ -178,7 +191,6 @@ double backtracking(Set* ptrSet, double* difArray, double* nabArray, double alph
 		a = function(ptrSet, xk + t*difArray[0], yk + t*difArray[1]);
 		b = function(ptrSet, xk, yk) + alpha*t*multArray12x21(nabArray, difArray);
 	}
-	//printf("t = %.10lf\n", t);
 	return t;
 }
 
@@ -276,19 +288,11 @@ int newton(Set* ptrSet, double epsilon, double tInitial)
 	double t = tInitial;
 	//criterio de parada
 	if(lambda2/2 >= epsilon  && t >= 0.000000005){
-		//printf("lambda2 : %lf \n", lambda2);
 		t = backtracking(ptrSet, difArray, nabArray, ALPHA, BETA);
-        //printf("t :%.20lf \n", t);
 		//actualizar x e y
 		ptrSet->x0 = ptrSet-> x0 + (t*difArray[0]);
 		ptrSet->y0 = ptrSet-> y0 + (t*difArray[1]);
-        //newton(ptrSet, epsilon, t);
         cInterno = 1 + newton(ptrSet, epsilon, t);
-        //printf("YIP YIP!\n");
 	}
     return cInterno;
 }
-
-// https://www.wolframalpha.com/input/?i=derivative+w*%28%28a+-+x%29%5E2++%2B+%28b+-+y%29%5E2%29%5E%28-0.5%29+*+%28x-a%29
-// falta: evaluacion de fc objetivo en cada instancia
-// imprimir numero de iteraciones para cada instancia y guardarlos para calcular promedio y maximo
