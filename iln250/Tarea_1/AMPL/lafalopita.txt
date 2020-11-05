@@ -1,0 +1,707 @@
+ampl: include '/home/mauricio/gdrive/usm/2020-s2/[ILN250] GIO/iln250/Tarea_1/AMPL/SSWB_R.run';
+cont = 0
+
+MINOS 5.51: optimal solution found.
+7 iterations, objective 116157699700
+Nonlin evals: obj = 16, grad = 15.
+X,Y,z,Expr_4
+4959.456438071174,5039.550481081566,116157699740.32208,0.018637999999999988
+cont = 1
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 113589792900
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+4938.754275603807,4943.813505083796,113589792879.95493,0.016528999999999794
+cont = 2
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115727671200
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5010.803219145896,5026.090025766039,115727671219.23422,0.016869000000000023
+cont = 3
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 113755053600
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4937.82154853463,5031.014420817342,113755053558.86568,0.014977000000000018
+cont = 4
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114663533700
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4955.996526948035,4929.399441765636,114663533665.08524,0.013891000000000042
+cont = 5
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 116113829500
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4965.840804793541,5130.792233905451,116113829538.5371,0.01546599999999998
+cont = 6
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115384724700
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5068.673050896515,4997.5961970691305,115384724725.18742,0.017946999999999907
+cont = 7
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 116132591700
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5007.039735567717,5000.049993944861,116132591665.39854,0.0170030000000001
+cont = 8
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114936652000
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4950.696747221698,5008.120693658858,114936651986.8887,0.01392799999999994
+cont = 9
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114733087800
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4987.168677092805,4959.505400095074,114733087843.15526,0.015562999999999994
+cont = 10
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114665964200
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5007.841188925212,5094.966623365196,114665964235.26129,0.016301000000000065
+cont = 11
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 113667446500
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5067.841272331975,4994.918128811539,113667446490.82735,0.016974000000000017
+cont = 12
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114422804000
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4989.829899853088,4998.913643577262,114422804029.8224,0.0164200000000001
+cont = 13
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114508914700
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5047.670444450931,4931.269804159891,114508914677.60388,0.01695000000000002
+cont = 14
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114202737000
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+4978.573926854645,4955.765925563705,114202737016.00276,0.017318999999999862
+cont = 15
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114275066200
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+5015.193756809402,5052.327313776017,114275066161.36725,0.015987999999999974
+cont = 16
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114131202400
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4900.438277283688,4978.883860411199,114131202420.30016,0.016780000000000017
+cont = 17
+
+MINOS 5.51: optimal solution found.
+7 iterations, objective 113498934400
+Nonlin evals: obj = 16, grad = 15.
+X,Y,z,Expr_4
+4946.188427361659,5065.520772557068,113498934388.45866,0.01690400000000003
+cont = 18
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115608340900
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4960.314206551391,4932.673903614436,115608340918.67918,0.018396000000000107
+cont = 19
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115598992800
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4935.029062519257,5000.2667661585965,115598992823.27142,0.016950999999999716
+cont = 20
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115783252100
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4947.3230090432235,5022.2552370368685,115783252099.50583,0.017901000000000167
+cont = 21
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114952680100
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5007.607292085693,4966.5373784880285,114952680129.74985,0.01451099999999994
+cont = 22
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115756177300
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4925.8126396962525,5012.276229188361,115756177255.53075,0.01674299999999998
+cont = 23
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 114365281700
+Nonlin evals: obj = 10, grad = 9.
+X,Y,z,Expr_4
+4976.448968861005,5012.533223673443,114365281682.21,0.01571599999999998
+cont = 24
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114815596500
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4950.880027844402,5025.2853941635885,114815596482.51984,0.01780500000000007
+cont = 25
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115082010600
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4969.1844711522035,4989.529511796683,115082010611.24773,0.017198000000000047
+cont = 26
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114637400400
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5059.018974317428,4987.185404793973,114637400390.58754,0.014925999999999995
+cont = 27
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115525014000
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5030.556100087795,5038.624659834245,115525013986.35216,0.017316999999999916
+cont = 28
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 113885104700
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4978.905670835575,4962.842550007791,113885104694.83559,0.015179999999999916
+cont = 29
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114414847800
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5031.995225606673,5036.246695300538,114414847791.5366,0.016649000000000136
+cont = 30
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115133956900
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4900.361211736039,5020.531299788559,115133956931.4682,0.01700400000000002
+cont = 31
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 113757118200
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5014.704886681316,5002.935847844623,113757118210.63121,0.015865999999999936
+cont = 32
+
+MINOS 5.51: optimal solution found.
+7 iterations, objective 114946345400
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+5012.1731739422485,4977.399174155382,114946345390.80428,0.01844800000000002
+cont = 33
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 114216509500
+Nonlin evals: obj = 11, grad = 10.
+X,Y,z,Expr_4
+5084.77884258861,4967.908918736638,114216509535.34715,0.015786999999999884
+cont = 34
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114043548100
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5002.240857583487,4996.729050757032,114043548106.70935,0.016876000000000002
+cont = 35
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115541376300
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5021.770478042638,4957.508800766869,115541376318.20308,0.01577200000000012
+cont = 36
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 113150463000
+Nonlin evals: obj = 11, grad = 10.
+X,Y,z,Expr_4
+5019.327124033804,5030.476895078661,113150462984.13705,0.017208000000000112
+cont = 37
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115190242100
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4992.584507003933,4930.231688559018,115190242146.86496,0.017122999999999777
+cont = 38
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115232343800
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4970.383717651184,4965.233630125918,115232343848.26215,0.01827700000000032
+cont = 39
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 113873437100
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4986.603543235411,4994.00888436152,113873437122.26509,0.017066999999999943
+cont = 40
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 113568390500
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4976.282628258376,4988.554300428239,113568390458.02481,0.01758299999999985
+cont = 41
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 116165424600
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4938.4181407601745,5040.098340691301,116165424613.78178,0.01692500000000008
+cont = 42
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115324478000
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+5073.183073985041,4979.585584619547,115324477951.546,0.016880999999999702
+cont = 43
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 113704382800
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4923.775724342103,4985.593360806084,113704382783.57309,0.01641500000000029
+cont = 44
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114771789300
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5010.604512572467,4957.163638316844,114771789307.68112,0.018318999999999974
+cont = 45
+
+MINOS 5.51: optimal solution found.
+7 iterations, objective 113937139800
+Nonlin evals: obj = 16, grad = 15.
+X,Y,z,Expr_4
+5044.592334984941,5014.229867220114,113937139840.49611,0.01707100000000006
+cont = 46
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114757211800
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4930.247638440597,4973.957238373091,114757211834.66615,0.015884999999999982
+cont = 47
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115088304500
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+4997.062289366534,5043.117733225838,115088304471.6711,0.01649099999999981
+cont = 48
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115296431100
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+5032.8599832814725,5061.376018722196,115296431137.21246,0.017259000000000135
+cont = 49
+
+MINOS 5.51: optimal solution found.
+7 iterations, objective 115058310000
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4966.26998396011,4989.112179656167,115058310049.30768,0.018079999999999874
+cont = 50
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115189568400
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+5068.473494836899,4992.548689287631,115189568366.37413,0.017104000000000286
+cont = 51
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114756860100
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+4909.710882985556,4955.442411785709,114756860114.99219,0.01723399999999975
+cont = 52
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114911071700
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4900.879958502346,5009.482342621061,114911071680.47014,0.013592000000000104
+cont = 53
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114709851000
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+4969.366607771192,4977.398949862321,114709851010.36478,0.016751999999999823
+cont = 54
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 115471924800
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4985.409290697442,4977.9025510473775,115471924760.40987,0.0174740000000001
+cont = 55
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 116009607800
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4966.927423808936,5006.477413327868,116009607840.27968,0.015800000000000036
+cont = 56
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114910761600
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5012.880708240025,5025.201944907344,114910761640.06032,0.015540999999999805
+cont = 57
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114270400300
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4941.425219373322,4988.004632400783,114270400301.27661,0.015353000000000172
+cont = 58
+
+MINOS 5.51: optimal solution found.
+7 iterations, objective 114096235200
+Nonlin evals: obj = 16, grad = 15.
+X,Y,z,Expr_4
+4955.835126772084,4964.794007015187,114096235211.67706,0.018083000000000182
+cont = 59
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114560553800
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4980.904613466372,5058.882345863611,114560553829.57088,0.01527699999999993
+cont = 60
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114266663100
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5066.443969417471,5045.259023612786,114266663085.46558,0.01593100000000014
+cont = 61
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 116389952800
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4955.493132236271,4955.495271219177,116389952821.26845,0.015016999999999947
+cont = 62
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114351351400
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4965.42054212191,5084.333042660115,114351351402.97076,0.017449999999999632
+cont = 63
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 116124185200
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5029.753488303766,5127.473563737721,116124185172.1342,0.01883000000000018
+cont = 64
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115327883500
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5000.683686176787,4997.24828927966,115327883502.71796,0.014193999999999818
+cont = 65
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 116268771100
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4981.75071184093,4999.779314600268,116268771144.93805,0.016125000000000167
+cont = 66
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114030583600
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4966.618709848986,4978.186863282652,114030583585.95477,0.018293000000000115
+cont = 67
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114635919100
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5020.490468280522,4963.494965628394,114635919116.59554,0.013848000000000138
+cont = 68
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114386944300
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5012.893015882302,4979.534658670454,114386944301.95816,0.014161999999999786
+cont = 69
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 115286129000
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5010.97817203758,5091.065810579208,115286128992.96901,0.017062000000000133
+cont = 70
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114799778600
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4975.133762003624,4967.594634442249,114799778585.80632,0.018936000000000064
+cont = 71
+
+MINOS 5.51: optimal solution found.
+7 iterations, objective 114617692300
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4995.502948537244,5045.955543506176,114617692311.30411,0.017884999999999707
+cont = 72
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 116240314800
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4990.190153222184,4953.969969247055,116240314846.22461,0.017305999999999988
+cont = 73
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114509280800
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4976.207053739049,5002.7040474800415,114509280817.9732,0.01654800000000023
+cont = 74
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 114654249000
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5031.140204648708,5004.027454493125,114654248950.23264,0.016348999999999947
+cont = 75
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114556845800
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4974.993572536477,5062.698821997642,114556845796.72177,0.014689000000000174
+cont = 76
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115105277100
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4935.784085632696,4971.92420586783,115105277149.61864,0.01801599999999981
+cont = 77
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114527798900
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4984.441339928593,4991.493556383656,114527798906.80112,0.017090999999999856
+cont = 78
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115320054700
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4945.646325507446,4976.338292984893,115320054709.35468,0.014672000000000018
+cont = 79
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 115902174400
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4994.505284194598,4972.11578164435,115902174434.3108,0.016356000000000037
+cont = 80
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115689493300
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5015.8739505695985,4995.105620731359,115689493258.43828,0.015489999999999948
+cont = 81
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114822957600
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4960.625878673131,4983.3085461931405,114822957602.28685,0.017692000000000263
+cont = 82
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 113507236100
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4988.714710707702,4995.711309906263,113507236064.62883,0.016812999999999967
+cont = 83
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 116108488100
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5059.148596070426,4975.519684791326,116108488147.34674,0.01661899999999994
+cont = 84
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 113652818500
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5048.104705647029,5016.537437237886,113652818485.52428,0.017034000000000105
+cont = 85
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115128199500
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+4981.745491417557,5048.27528257795,115128199541.65388,0.017241999999999535
+cont = 86
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115171285700
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+5082.827692504962,5027.603408416013,115171285673.4512,0.017033000000000187
+cont = 87
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115582196900
+Nonlin evals: obj = 11, grad = 10.
+X,Y,z,Expr_4
+5025.605520029117,5030.9450798776215,115582196855.97673,0.015945000000000098
+cont = 88
+
+MINOS 5.51: optimal solution found.
+8 iterations, objective 114410868700
+Nonlin evals: obj = 17, grad = 16.
+X,Y,z,Expr_4
+4990.626099961735,4985.894845631869,114410868691.15788,0.016926999999999914
+cont = 89
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115078377500
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5014.648494322335,4932.2213419252885,115078377543.9897,0.01726800000000006
+cont = 90
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115095300800
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4979.1744758928635,4975.4226546573,115095300830.65361,0.016661999999999733
+cont = 91
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114362685800
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5028.44803403048,4950.704292899045,114362685754.25911,0.017029000000000405
+cont = 92
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114914958400
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5016.484598739056,4985.336946854718,114914958402.24173,0.016874
+cont = 93
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114352327500
+Nonlin evals: obj = 14, grad = 13.
+X,Y,z,Expr_4
+4978.203695475963,5019.704628669513,114352327499.1998,0.017821000000000087
+cont = 94
+
+MINOS 5.51: optimal solution found.
+4 iterations, objective 114303699900
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4972.863374637068,4985.906253650191,114303699916.72237,0.015457999999999639
+cont = 95
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 114813046500
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5022.651086818101,4980.030085516859,114813046460.30324,0.015025000000000066
+cont = 96
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 114130602900
+Nonlin evals: obj = 15, grad = 14.
+X,Y,z,Expr_4
+4913.3718878451145,5099.919811891655,114130602885.41884,0.020097000000000143
+cont = 97
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 113709369600
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+4958.7846979023625,5041.5087048960395,113709369569.89046,0.014996999999999927
+cont = 98
+
+MINOS 5.51: optimal solution found.
+6 iterations, objective 115268078500
+Nonlin evals: obj = 13, grad = 12.
+X,Y,z,Expr_4
+5066.598337034973,4979.349088504814,115268078487.68445,0.01738999999999985
+cont = 99
+
+MINOS 5.51: optimal solution found.
+5 iterations, objective 115598878000
+Nonlin evals: obj = 12, grad = 11.
+X,Y,z,Expr_4
+5048.543409060938,5052.3371436860325,115598877991.08913,0.01502200000000009
+tavg = 0.0165948
+tmax = 0.020097
+zavg = 1.14836e+11
+zmax = 1.1639e+11
+
+ampl: 
