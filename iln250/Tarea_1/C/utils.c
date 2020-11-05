@@ -75,9 +75,10 @@ void initPoint(Set* ptrSet)
 }
 
 
-void weiszfeld(Set* ptrSet, double epsilon, int kmax, double Zk1)
+int weiszfeld(Set* ptrSet, double epsilon, int kmax, double Zk1)
 {
-	double* distances = malloc(sizeof(double)*(ptrSet->size));
+    int cInterno = 1;
+    double* distances = malloc(sizeof(double)*(ptrSet->size));
 	distance(ptrSet, distances);
 	double Zk = sum(ptrSet->size, ptrSet, distances);
 	//Esto se ejecuta la primera vez
@@ -88,9 +89,10 @@ void weiszfeld(Set* ptrSet, double epsilon, int kmax, double Zk1)
 		//printf("Weiszfeld listo! \n");
 	}
 	else{
-		printf("yip yip! \n");
-		weiszfeld(ptrSet, epsilon, kmax-1, Zk);
+		//printf("yip yip! \n");
+		cInterno = 1 + weiszfeld(ptrSet, epsilon, kmax-1, Zk);
 	}
+    return cInterno;
 }
 
 void distance(Set* ptrSet, double* ptrDistances)
@@ -137,8 +139,9 @@ void newPoint(Set* ptrSet, double* ptrDistances)
 
 /*----------------------------------------------------------*/
 
-void gradient(Set* ptrSet, double epsilon)
+int gradient(Set* ptrSet, double epsilon)
 {
+    int cInterno = 1;
 	//calculo deltax
 	double difArray[2];
 	Dfunction(ptrSet, ptrSet->x0, ptrSet->y0, difArray);
@@ -154,10 +157,11 @@ void gradient(Set* ptrSet, double epsilon)
 	ptrSet->x0 = ptrSet-> x0 + (t*difArray[0]);
 	ptrSet->y0 = ptrSet-> y0 + (t*difArray[1]);
 	double norma = pow(nabArray[0], 2) + pow(nabArray[1],2);
-	if(norma >= pow(epsilon,2)  && t >= 0.0000000005){
-		//printf("%lf \n", norma);
-		gradient(ptrSet, epsilon);
+	if(norma >= pow(epsilon,2)  && t >= 0.000005){
+		//printf("yip yip!\n");
+		cInterno = 1 + gradient(ptrSet, epsilon);
 	}
+    return cInterno;
 
 }
 
@@ -248,9 +252,10 @@ void multArray22x21(double arrayA[][2], double* arrayB, double* arrayReturn)
 	arrayReturn[1] = arrayA[1][0]*arrayB[0] + arrayA[1][1]*arrayB[1];
 }
 
-void newton(Set* ptrSet, double epsilon)
+int newton(Set* ptrSet, double epsilon, double tInitial)
 {
-	//calculo deltax
+    int cInterno = 1;
+    //calculo deltax
 	double difArray[2];
 	double nabArray[2];
 	double HArray[2][2];
@@ -268,16 +273,20 @@ void newton(Set* ptrSet, double epsilon)
 	}
 	//calculo lambda^2
 	double lambda2 = multArray12x21(nabArray, tempArray);
-	double t = 1;
+	double t = tInitial;
 	//criterio de parada
-	if(lambda2/2 >= epsilon  && t >= 0.0000000005){
-		//printf("%lf \n", lambda2);
+	if(lambda2/2 >= epsilon  && t >= 0.000000005){
+		//printf("lambda2 : %lf \n", lambda2);
 		t = backtracking(ptrSet, difArray, nabArray, ALPHA, BETA);
+        //printf("t :%.20lf \n", t);
 		//actualizar x e y
 		ptrSet->x0 = ptrSet-> x0 + (t*difArray[0]);
 		ptrSet->y0 = ptrSet-> y0 + (t*difArray[1]);
-		gradient(ptrSet, epsilon);
+        //newton(ptrSet, epsilon, t);
+        cInterno = 1 + newton(ptrSet, epsilon, t);
+        //printf("YIP YIP!\n");
 	}
+    return cInterno;
 }
 
 // https://www.wolframalpha.com/input/?i=derivative+w*%28%28a+-+x%29%5E2++%2B+%28b+-+y%29%5E2%29%5E%28-0.5%29+*+%28x-a%29

@@ -27,8 +27,8 @@
 #define EPSILON 0.0001
 #define KMAX 30
 #define I_SIZE 10000
-#define ALPHA 0.3 // 0<ALPHA<0.5
-#define BETA 0.6 // 0<BETA<1
+#define ALPHA 0.3f // 0<ALPHA<0.5
+#define BETA 0.6f // 0<BETA<1
 
 /**
  * @brief Set: Estructura que agrupa los distintos conjuntos del problema
@@ -118,16 +118,18 @@ void initPoint(Set* ptrSet);
  * @param[in] kmax Numero máximo de iteraciones para el algoritmo
  * @param[in] Zk1 Parametro para llamadas recursiva, inicializar a 0
 */
-void weiszfeld(Set* ptrSet, double epsilon,  int kmax, double Zk1);
+int weiszfeld(Set* ptrSet, double epsilon,  int kmax, double Zk1);
 /**
  * @brief distance inicializa un arreglo con las distancias di
  *
  * La función inicializa un arreglo, con el cálculo de las distancias
  * eucliadianas entre los puntos Xi e Yi, con los puntos iniciales X0, Y0, que
- * se obtienen del set pasado.
+ * se obtienen del set pasado. La funcion retorna un entero que indica el
+ * número total de iteraciones realizadas
  *
  * @param[in] ptrSet Puntero al set sobre el cual se calculara las distancias
  * @param[in] ptrDistances Puntero a un arreglo donde se guarda el resultado
+ * @param[out] cInterno contador interno de las iteraciones del algoritmo.
 */
 void distance(Set* ptrSet, double* ptrDistances);
 /**
@@ -145,8 +147,8 @@ double sum(int i, Set* ptrSet, double* distances);
 /**
  * @brief newPoint Recalcula los puntos iniciales considerando la distancia d(k)
  *
- * La función realiza el recalculo de los puntos iniciales, considerando la
- * distancia calculada en la iteración k-esima - 1, para poder estimar los
+ * La función realiza el recálculo de los puntos iniciales, considerando la
+ * distancia calculada en la iteración k-ésima - 1, para poder estimar los
  * puntos iniciales X0(k) e Y0(k), estos se reescriben en la estructura.
  *
  * @param[in] ptrSet Puntero al Set sobre el cual se operara.
@@ -154,16 +156,19 @@ double sum(int i, Set* ptrSet, double* distances);
 */
 void newPoint(Set* ptrSet, double* ptrDistances);
 /**
- * [ VER ORDEN FUNCIONEs]
+ * @brief gradient Aplica el algoritmo de gradiente con backtracking sobre Set
+ *
+ * La función aplica el algoritmo resolutivo del método de gradiente con
+ * backtracking sobre la estructura set pasado, de forma recursiva.
 */
+int gradient(Set* ptrSet, double epsilon);
 void Dfunction(Set* ptrSet, double x, double y, double* returnArray);
 double backtracking(Set* ptrSet, double* difArray, double* nabArray, double alpha, double beta);
 double function(Set* ptrSet, double x, double y);
 double multArray12x21(double* Array1, double* Array2);
 void multArray22x21(double arrayA[][2], double* arrayB, double* arrayReturn);
-void gradient(Set* ptrSet, double epsilon);
 void invHfunction(Set* ptrSet, double x, double y, double returnArray[][2]);
-void newton(Set* ptrSet, double epsilon);
+int newton(Set* ptrSet, double epsilon, double tInitial);
 
 
 //Revision para eliminacion
