@@ -1,6 +1,23 @@
-#
+reset;
 param cont default 0 ;
-repeat until cont == 10{
-	print "la falopita";
+param n := 10000;
+param tavg default 0;
+param tmax default 0;
+param zavg default 0;
+param zmax default 0;
 
+model SSWB.mod;
+repeat until cont == 100{
+	display cont;
+	solve;
+	csvdisplay X, Y, z, _solve_time;
+	let tavg := tavg + _solve_time;
+	let zavg := zavg + z;
+	if _solve_time > tmax then {let tmax := _solve_time};
+	if z > zmax then {let zmax := z};
+	reset data w, x, y;
 	let cont :=cont + 1;};
+let tavg := tavg/cont;
+let zavg := zavg/cont;
+
+display tavg, tmax, zavg, zmax;
