@@ -36,7 +36,7 @@
 // #define EPSILON 0.001
 // #define KMAX 30
 // #define I_SIZE 1000
-#define INSTANCES 1 // TEMPORAL
+#define INSTANCES 100 // TEMPORAL
 // #define ALPHA 0.3 // 0<ALPHA<0.5
 // #define BETA 0.6 // 0<BETA<1
 
@@ -60,19 +60,35 @@
 // void invHfunction(Set* ptrSet, double x, double y, double returnArray[][2]);
 // void newton(Set* ptrSet, double epsilon);
 
+// Variables globales
 
+// instances, max, avg (se almacena max y avg en los ultimos elementos
+
+/*
+[0] - [INSTANCES - 1] Tiempos
+[INSTANCES] - [INSTANCES +1] Datos temporales {max, avg}
+[INSTANCES + 2] - [INSTANCES + 3] Datos de iteracion {max, avg}
+[INSTANCES + 4] - [INSTANCES + 5] Datos de F.O. {max, avg}
+*/
+unsigned long avgArrayW[INSTANCES + 2]; //Weiszfeld
+unsigned long avgArrayG[INSTANCES + 2]; //Gradient
+unsigned long avgArrayN[INSTANCES + 2]; //Newton
+
+double avgIteration[3]  = {0., 0., 0.};
+int maxIteration[3]  = {0, 0, 0};
+double avgFc[3] = {0., 0., 0.};
+double maxFc[3] = {0., 0., 0.};
 /*--------------------------------------------------------------*/
 int main(int argc, char const *argv[])
 {
 	srand48(time(0));
-	// instances, max, avg (se almacena max y avg en los ultimos elementos
-	unsigned long avgArrayW[INSTANCES + 2]; //Weiszfeld
-	unsigned long avgArrayG[INSTANCES + 2]; //Gradient
-	unsigned long avgArrayN[INSTANCES + 2]; //Newton
+	//INICIALIZACION EN CERO
 	avgArrayW[INSTANCES + 1] = avgArrayG[INSTANCES + 1] = avgArrayN[INSTANCES + 1] = 0.;
 	struct timeval stop, start;
 	unsigned long timeTaken;
 	unsigned long prev;
+	int nIteration[3] = {0, 0, 0}; // N° iteraciones
+	double Fc[3] = {0., 0., 0.};
 
 	for(int i=0; i<INSTANCES; i++) {
 		Set* test  = getNewSet(I_SIZE);
@@ -86,21 +102,22 @@ int main(int argc, char const *argv[])
 				case 0:
 					printf("Weiszfeld\n");
 					gettimeofday(&start, NULL);
-					weiszfeld(test, EPSILON, KMAX, 0);
+					nIteration[0] = weiszfeld(test, EPSILON, KMAX, 0);
 					gettimeofday(&stop, NULL);
 					printf("Soluciones finales X* = %f, Y* = %f\n", test->x0, test->y0);
+					printf("Nº iteraciones: %i\n", nIteration[0]);
 					break;
 				case 1:
 					printf("Gradiente\n");
 					gettimeofday(&start, NULL);
-					gradient(test, EPSILON);
+					nIteration[1] = gradient(test, EPSILON);
 					printf("Soluciones finales X* = %f, Y* = %f\n", test->x0, test->y0);
 					gettimeofday(&stop, NULL);
 					break;
 				case 2:
 					printf("Newton\n");
 					gettimeofday(&start, NULL);
-					newton(test, EPSILON);
+					nIteration[2] = newton(test, EPSILON);
 					printf("Soluciones finales X* = %f, Y* = %f\n", test->x0, test->y0);
 					gettimeofday(&stop, NULL);
 					break;
@@ -110,46 +127,56 @@ int main(int argc, char const *argv[])
 			switch(j)
 			{
 				case 0:
+					//Analisis temporal
 					avgArrayW[i] = timeTaken;
 					printf("tiempo: %lu [us]\n", timeTaken);
-					if (i == 0) {
-						prev = 0;
-					}
-					else {
-						prev = avgArrayW[i-1];
-					}
-					if (timeTaken > prev) {
+					printf("nIteration: %d\n", nIteration[0]);
+					prev = (i == 0)?0:avgArrayW[i-1];
+					if (timeTaken > prev)
 						avgArrayW[INSTANCES] = timeTaken; //se guarda max
-					}
 					avgArrayW[INSTANCES + 1] += timeTaken; //se guarda sum
+					//Analisis iteracion
+					if (nIteration[0] > maxIteration[0])
+						maxIteration[0] = nIteration[0];
+					avgIteration[0] += nIteration[0];
+					//Funcion objetivo
+					/*
+					Fc[0] = function(test, test->x0, test->y0);
+					printf("Funcion objetivo: %lf\n", Fc[0]);
+					if (Fc[0] > maxFc[0])
+						maxFc[0] = Fc[0];
+					avgFc[0] += Fc[0];
+					*/
 					break;
 				case 1:
+					//Analisis temporal
 					avgArrayG[i] = timeTaken;
 					printf("tiempo: %lu [us]\n", timeTaken);
-					if (i == 0) {
-						prev = 0;
-					}
-					else {
-						prev = avgArrayG[i-1];
-					}
-					if (timeTaken > prev) {
+					printf("nIteration: %d\n", nIteration[1]);
+					prev = (i == 0)?0:avgArrayG[i-1];
+					if (timeTaken > prev)
 						avgArrayG[INSTANCES] = timeTaken; //se guarda max
-					}
 					avgArrayG[INSTANCES + 1] += timeTaken; //se guarda sum
+					//Analisis iteracion
+					if (nIteration[1] > maxIteration[1])
+						maxIteration[1] = nIteration[1];
+					avgIteration[1] += nIteration[1];
 					break;
+
 				case 2:
+					//Analisis temporal
 					avgArrayN[i] = timeTaken;
 					printf("tiempo: %lu [us]\n", timeTaken);
-					if (i == 0) {
-						prev = 0;
-					}
-					else {
-						prev = avgArrayN[i-1];
-					}
-					if (timeTaken > prev) {
+					printf("nIteration: %d\n", nIteration[2]);
+					prev = (i == 0)?0:avgArrayN[i-1];
+
+					if (timeTaken > prev)
 						avgArrayN[INSTANCES] = timeTaken; //se guarda max
-					}
 					avgArrayN[INSTANCES + 1] += timeTaken; //se guarda sum
+					//Analisis iteracion
+					if (nIteration[2] > maxIteration[2])
+						maxIteration[2] = nIteration[2];
+					avgIteration[2] += nIteration[2];
 					break;
 			}
 		}
@@ -160,13 +187,24 @@ int main(int argc, char const *argv[])
 	avgArrayG[INSTANCES + 1] /= INSTANCES;
 	avgArrayN[INSTANCES + 1] /= INSTANCES;
 
+	avgIteration[0] /= INSTANCES;
+	avgIteration[1] /= INSTANCES;
+	avgIteration[2] /= INSTANCES;
+
 	printf("\n\n -------- MAXIMOS Y PROMEDIOS --------\n\n");
 	printf("Weiszfeld\n");
 	printf("tmax = %lu [us], tavg = %lu [us]\n", avgArrayW[INSTANCES], avgArrayW[INSTANCES + 1] );
+	printf("nIterationMax = %i, nIterationAvg = %.2lf \n\n", maxIteration[0], avgIteration[0]);
+
+
 	printf("Gradiente\n");
 	printf("tmax = %lu [us], tavg = %lu [us]\n", avgArrayG[INSTANCES], avgArrayG[INSTANCES + 1] );
+	printf("nIterationMax = %i, nIterationAvg = %.2lf \n\n", maxIteration[1], avgIteration[1]);
+
+
 	printf("Newton\n");
 	printf("tmax = %lu [us], tavg = %lu [us]\n", avgArrayN[INSTANCES], avgArrayN[INSTANCES + 1] );
+	printf("nIterationMax = %i, nIterationAvg = %.2lf \n\n", maxIteration[2], avgIteration[2]);
 
 	return 0;
 }
@@ -448,3 +486,5 @@ int main(int argc, char const *argv[])
 // // https://www.wolframalpha.com/input/?i=derivative+w*%28%28a+-+x%29%5E2++%2B+%28b+-+y%29%5E2%29%5E%28-0.5%29+*+%28x-a%29
 // // falta: evaluacion de fc objetivo en cada instancia
 // // imprimir numero de iteraciones para cada instancia y guardarlos para calcular promedio y maximo
+// Como iteracion es distinta, no tiene mucho sentido comparar el promedio entre las iteraciones, por lo que haremos será comparar en una iteración la función objetivo converge a lo mismo, ya que se está comparando los tres algoritmos para el mismo set. De todas manera, por cumplir los requirimientos será de todas maneras comparar el máximo y promedio ALMACENAR
+// Comentar diferencias entre eficiencia de iteraciones dy de tiempo
