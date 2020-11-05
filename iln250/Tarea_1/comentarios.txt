@@ -1,0 +1,31 @@
+UTIL C
+
+// https://www.wolframalpha.com/input/?i=derivative+w*%28%28a+-+x%29%5E2++%2B+%28b+-+y%29%5E2%29%5E%28-0.5%29+*+%28x-a%29
+// falta: evaluacion de fc objetivo en cada instancia
+// imprimir numero de iteraciones para cada instancia y guardarlos para calcular promedio y maximo
+
+TAREA_1.C
+/*----------------------------------------------------------------------------*/
+// // https://www.wolframalpha.com/input/?i=derivative+w*%28%28a+-+x%29%5E2++%2B+%28b+-+y%29%5E2%29%5E%28-0.5%29+*+%28x-a%29
+// // falta: evaluacion de fc objetivo en cada instancia
+// // imprimir numero de iteraciones para cada instancia y guardarlos para calcular promedio y maximo
+// Como iteracion es distinta, no tiene mucho sentido comparar el promedio entre las iteraciones, por lo que
+//haremos será comparar en una iteración la función objetivo converge a lo mismo, ya que se está comparando los tres algoritmos
+//para el mismo set. De todas manera, por cumplir los requirimientos será de todas maneras comparar el máximo y promedio ALMACENAR
+// Comentar diferencias entre eficiencia de iteraciones dy de tiempo
+// https://pubs.opengroup.org/onlinepubs/007908799/xsh/drand48.html
+//(https://stackoverflow.com/questions/10192903/time-in-milliseconds-in-c)
+
+
+
+https://en.wikipedia.org/wiki/Weber_problem
+
+
+
+AMPL
+#time() current time in seconds
+#http://ampl.996311.n3.nabble.com/Random-generating-of-parameters-td6132.html
+#usar _total_solve_system_time para obtener el tiempo total y de esta manera calcular el promedio
+#usar solve_system_time para cada iteración y almacenar el máximo
+#https://ampl.com/BOOK/CHAPTERS/24-refman.pdf
+#referencia de drand48() en c
