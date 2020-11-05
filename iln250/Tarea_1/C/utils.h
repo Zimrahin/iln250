@@ -22,13 +22,14 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-// TEMPORAL POR COMENTAR
-
-#define EPSILON 0.0001
-#define KMAX 30
-#define I_SIZE 10000
-#define ALPHA 0.3f // 0<ALPHA<0.5
-#define BETA 0.6f // 0<BETA<1
+/**
+ * @brief Constantes de funcionamiento:
+*/
+#define EPSILON 0.0001	/**< Valor de la condición de parada */
+#define KMAX 30			/**< Número máximo de iteraciones de Weiszfeld */
+#define I_SIZE 10000	/**< Cardinalidad por defecto del conjunto I */
+#define ALPHA 0.3f      /**< Constante usada en backtracking */
+#define BETA 0.6f       /**< Constante usada en backtracking */
 
 /**
  * @brief Set: Estructura que agrupa los distintos conjuntos del problema
@@ -170,20 +171,90 @@ void newPoint(Set* ptrSet, double* ptrDistances);
 */
 int gradient(Set* ptrSet, double epsilon);
 /**
+ * @brief Dfunction evalua el gradiente de la función objetivo en un punto x,y
  *
+ * La funcion evalua el gradiente previamente calculado de la función objetivo,
+ * del problema SSWB, sobre un punto x,y, retornando en el arreglo pasado, el
+ * resultado, donde posición [0] es la derivada evaluada de x;  en [1] de Y
+ *
+ * @parma[in] ptrSet puntero al Set sobre el cual se operara
+ * @param[in] x Coordenada X sobre la cual se evaluara el gradiente de la F.O.
+ * @param[in] x Coordenada Y sobre la cual se evaluara el gradiente de la F.O.
+ * @param[in] returnArray puntero al arreglo donde se almacena el resultado
 */
 void Dfunction(Set* ptrSet, double x, double y, double* returnArray);
+/**
+ * @brief backtracking calcula el tamaño de paso t, mediante este metodo
+ *
+ * La función calcula el tamaño de paso t, comenzando con t = 1,  utilizando el
+ * algortimo de backtracking de forma iterativa, utilizando como parámetros
+ * alpha y beta, para operar sobre la dirección de descenso y el gradiente,
+ * para obtener el nuevo tamaño de paso.
+ *
+ * @param[in] ptrSet Puntero al set sobre el cual se operara
+ * @param[in] difArray Dirección de descenso detla X evaluado en el punto X0/Y0
+ * @param[in] nabArray Gradiente de la F.O. evaluado en X0 e Y0
+ * @param[in] alpha
+ * @param[in] beta
+*/
 double backtracking(Set* ptrSet, double* difArray, double* nabArray, double alpha, double beta);
+/**
+ * @brief function evalua la funcion objetivo en los puntos X e Y
+ *
+ * Se evalua la función objetivo del problema SSWB, en los puntos dados.
+ *
+ * @param[in] ptrSet Puntero a set sobre el cual se operara
+ * @param[in] x Coordenada X a evaluar
+ * @param[in] y Coordenada Y a evaluar
+ * @param[out] retorno El valor de la función objetivo evaluada.
+*/
 double function(Set* ptrSet, double x, double y);
+/**
+ * @brief multArray12x21 realiza la multiplicacion de matrices (1x2)*(2x1)
+ *
+ * Realiza la multiplicacion de una matriz de 1x2 con otra de 2x1, retorna el
+ * resultado como un valor 1x1.
+ *
+ * @param[in] Puntero a Array1 Matriz (1x2)
+ * @param[in] Puntero a Arayy2 Matriz (2x1)
+ * @param[out] resultado (1x1)
+*/
 double multArray12x21(double* Array1, double* Array2);
+/**
+ * @brief multArray22x21 realiza la multiplicacion de matrices (2x2)*(2x1)
+ *
+ * Realiza la multiplicacion de una matriz de 2x2 con otra de 2x1, retorna el
+ * resultado como una matriz (2x1).
+ *
+ * @param[in] Array1[][2] Matriz (1x2)
+ * @param[in] Puntero a Arayy2 Matriz (2x1)
+ * @param[out] resultado (2x1)
+*/
 void multArray22x21(double arrayA[][2], double* arrayB, double* arrayReturn);
+/**
+ * @brief Evalua el Hessiano inverso en el punto x, y
+ *
+ * Dado un par de puntos, la función evalua el hessiano inverso, y almacena el
+ * resultado en un arreglo de salida / Matriz (2x2)
+ *
+ * @param[in] ptrSet Estructura sobre la cual se operara
+ * @parma[in] x Coordenada X
+ * @parma[in] y Coordenada Y
+ * @param[in] returnArray[][2] Arreglo de (2x2) que almacena resultado
+*/
 void invHfunction(Set* ptrSet, double x, double y, double returnArray[][2]);
+/**
+ * @brief newton realiza la aplicación del algoritmo newton sobre la estructura.
+ *
+ * La función aplica el algortimo de newton con backtracking, sobre los Valores
+ * pasados en la estructura, con el fin de minimizar la función objetivo.
+ * El resultado se almacena en los valores X0 e Y0 de la estructura.
+ * El algoritmo se realiza de forma recursiva, hasta cumplir condición
+ * de parada.
+ *
+ * @param[in] ptrSet Puntero a la estructura sobre la cual operar
+ * @param[in] epsilon Valor criterio parada
+ * @param[in] t Inicializar siempre a t = 1, uso interno algoritmo.
+*/
 int newton(Set* ptrSet, double epsilon, double tInitial);
-
-
-//Revision para eliminacion
-void printValues(Set* ptrSet);
-
-
-
 #endif
