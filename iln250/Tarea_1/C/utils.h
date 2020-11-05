@@ -27,8 +27,8 @@
 #define EPSILON 0.0001
 #define KMAX 30
 #define I_SIZE 10000
-#define ALPHA 0.3 // 0<ALPHA<0.5
-#define BETA 0.6 // 0<BETA<1
+#define ALPHA 0.3f // 0<ALPHA<0.5
+#define BETA 0.6f // 0<BETA<1
 
 /**
  * @brief Set: Estructura que agrupa los distintos conjuntos del problema
@@ -168,7 +168,7 @@ double function(Set* ptrSet, double x, double y);
 double multArray12x21(double* Array1, double* Array2);
 void multArray22x21(double arrayA[][2], double* arrayB, double* arrayReturn);
 void invHfunction(Set* ptrSet, double x, double y, double returnArray[][2]);
-int newton(Set* ptrSet, double epsilon);
+int newton(Set* ptrSet, double epsilon, double tInitial);
 
 
 //Revision para eliminacion

@@ -36,7 +36,7 @@
 // #define EPSILON 0.001
 // #define KMAX 30
 // #define I_SIZE 1000
-#define INSTANCES 100 // TEMPORAL
+#define INSTANCES 2 // TEMPORAL
 // #define ALPHA 0.3 // 0<ALPHA<0.5
 // #define BETA 0.6 // 0<BETA<1
 
@@ -117,7 +117,7 @@ int main(int argc, char const *argv[])
 				case 2:
 					printf("Newton\n");
 					gettimeofday(&start, NULL);
-					nIteration[2] = newton(test, EPSILON);
+					nIteration[2] = newton(test, EPSILON, 1);
 					printf("Soluciones finales X* = %f, Y* = %f\n", test->x0, test->y0);
 					gettimeofday(&stop, NULL);
 					break;
@@ -140,13 +140,11 @@ int main(int argc, char const *argv[])
 						maxIteration[0] = nIteration[0];
 					avgIteration[0] += nIteration[0];
 					//Funcion objetivo
-					/*
 					Fc[0] = function(test, test->x0, test->y0);
 					printf("Funcion objetivo: %lf\n", Fc[0]);
 					if (Fc[0] > maxFc[0])
 						maxFc[0] = Fc[0];
 					avgFc[0] += Fc[0];
-					*/
 					break;
 				case 1:
 					//Analisis temporal
@@ -161,6 +159,12 @@ int main(int argc, char const *argv[])
 					if (nIteration[1] > maxIteration[1])
 						maxIteration[1] = nIteration[1];
 					avgIteration[1] += nIteration[1];
+					//Funcion objetivo
+					Fc[1] = function(test, test->x0, test->y0);
+					printf("Funcion objetivo: %lf\n", Fc[1]);
+					if (Fc[1] > maxFc[1])
+						maxFc[1] = Fc[1];
+					avgFc[1] += Fc[1];
 					break;
 
 				case 2:
@@ -177,6 +181,12 @@ int main(int argc, char const *argv[])
 					if (nIteration[2] > maxIteration[2])
 						maxIteration[2] = nIteration[2];
 					avgIteration[2] += nIteration[2];
+					//Funcion objetivo
+					Fc[2] = function(test, test->x0, test->y0);
+					printf("Funcion objetivo: %lf\n", Fc[0]);
+					if (Fc[2] > maxFc[2])
+						maxFc[2] = Fc[2];
+					avgFc[2] += Fc[2];
 					break;
 			}
 		}
@@ -191,20 +201,27 @@ int main(int argc, char const *argv[])
 	avgIteration[1] /= INSTANCES;
 	avgIteration[2] /= INSTANCES;
 
+	avgFc[0] /= INSTANCES;
+	avgFc[1] /= INSTANCES;
+	avgFc[2] /= INSTANCES;
+
 	printf("\n\n -------- MAXIMOS Y PROMEDIOS --------\n\n");
 	printf("Weiszfeld\n");
 	printf("tmax = %lu [us], tavg = %lu [us]\n", avgArrayW[INSTANCES], avgArrayW[INSTANCES + 1] );
-	printf("nIterationMax = %i, nIterationAvg = %.2lf \n\n", maxIteration[0], avgIteration[0]);
+	printf("nIterationMax = %i, nIterationAvg = %.2lf \n", maxIteration[0], avgIteration[0]);
+	printf("maxFc = %.4lf, avgFc = %.4lf\n\n", maxFc[0], avgFc[0]);
 
 
 	printf("Gradiente\n");
 	printf("tmax = %lu [us], tavg = %lu [us]\n", avgArrayG[INSTANCES], avgArrayG[INSTANCES + 1] );
-	printf("nIterationMax = %i, nIterationAvg = %.2lf \n\n", maxIteration[1], avgIteration[1]);
+	printf("nIterationMax = %i, nIterationAvg = %.2lf \n", maxIteration[1], avgIteration[1]);
+	printf("maxFc = %.4lf, avgFc = %.4lf\n\n", maxFc[1], avgFc[1]);
 
 
 	printf("Newton\n");
 	printf("tmax = %lu [us], tavg = %lu [us]\n", avgArrayN[INSTANCES], avgArrayN[INSTANCES + 1] );
-	printf("nIterationMax = %i, nIterationAvg = %.2lf \n\n", maxIteration[2], avgIteration[2]);
+	printf("nIterationMax = %i, nIterationAvg = %.2lf \n", maxIteration[2], avgIteration[2]);
+	printf("maxFc = %.4lf, avgFc = %.4lf\n\n", maxFc[2], avgFc[2]);
 
 	return 0;
 }
